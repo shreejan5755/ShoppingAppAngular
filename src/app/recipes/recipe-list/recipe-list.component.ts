@@ -9,7 +9,7 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeListComponent implements OnInit {
   // creating an event so that the selcted recipe can be passed to one level up
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
+  // @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[];
 
   constructor( private _recipeService: RecipeService) { }
@@ -20,8 +20,8 @@ export class RecipeListComponent implements OnInit {
 
   // implementing the method that gets the output parameter
   // creating a custom event
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe);
-  }
+  // onRecipeSelected(recipe: Recipe) {
+  //   this.recipeWasSelected.emit(recipe);
+  // }
 
 }
