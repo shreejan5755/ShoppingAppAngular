@@ -8,8 +8,6 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  // creating an event so that the selcted recipe can be passed to one level up
-  // @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[];
 
   constructor( private _recipeService: RecipeService) { }
@@ -17,11 +15,4 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
     this.recipes = this._recipeService.getRecipes();
   }
-
-  // implementing the method that gets the output parameter
-  // creating a custom event
-  // onRecipeSelected(recipe: Recipe) {
-  //   this.recipeWasSelected.emit(recipe);
-  // }
-
 }

@@ -11,16 +11,12 @@ export class RecipeItemComponent implements OnInit {
   // Input directive allows us to bind this property from outside
   @Input() recipe: Recipe;
 
-  // output property to pass the item to the other element
-  // @Output() recipeSelected = new EventEmitter<void>();
-
   constructor( private _recipeService: RecipeService) { }
 
   ngOnInit() {
   }
 
   onRecipeSelected() {
-    // this.recipeSelected.emit();
     this._recipeService.recipeSelected.emit(this.recipe);
   }
 
