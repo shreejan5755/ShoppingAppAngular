@@ -1,7 +1,7 @@
 import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -13,7 +13,7 @@ export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
 
-  constructor( private _recipeService: RecipeService, private route: ActivatedRoute) { }
+  constructor( private _recipeService: RecipeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     // this approach wont work for same page redirection
@@ -30,6 +30,13 @@ export class RecipeDetailComponent implements OnInit {
 
   onAddToShoppingList() {
     this._recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+  }
+
+  onEditRecipe() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
+    // this is just an example of complex navigation which could also be used
+    // here we go up one route (i.e. to recipe) then we add id and edit to the route
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 
 }
