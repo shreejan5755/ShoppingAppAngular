@@ -10,14 +10,15 @@ import { Recipe } from '../../recipe.model';
 export class RecipeItemComponent implements OnInit {
   // Input directive allows us to bind this property from outside
   @Input() recipe: Recipe;
+  @Input() id: number;
 
-  constructor( private _recipeService: RecipeService) { }
+  // constructor( private _recipeService: RecipeService) { }
 
   ngOnInit() {
   }
 
-  onRecipeSelected() {
-    this._recipeService.recipeSelected.emit(this.recipe);
-  }
+  // onRecipeSelected() {
+  //   this._recipeService.recipeSelected.emit(this.recipe);
+  // }
 
 }
