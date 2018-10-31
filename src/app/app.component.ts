@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectedWindow = 'recipe';
+  // selectedWindow = 'recipe';
 
-  onNavigate(selectedNavMenu: string) {
-    this.selectedWindow = selectedNavMenu;
-  }
+  // onNavigate(selectedNavMenu: string) {
+  //   this.selectedWindow = selectedNavMenu;
+  // }
 }
