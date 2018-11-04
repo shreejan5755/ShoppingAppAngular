@@ -40,4 +40,12 @@ export class ShoppingListService {
        this.ingredients[index] = newIngredient;
        this.ingredientsChanged.next(this.ingredients.slice());
     }
+
+    // method to delete the ingredient
+    deleteIngredient(index: number) {
+        // removing the element in the particluar index by slicing one item 
+        // from that index
+        this.ingredients.splice(index, 1);
+        this.ingredientsChanged.next(this.ingredients.slice());
+    }
 }
