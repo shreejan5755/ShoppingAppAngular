@@ -7,7 +7,7 @@ import { identifierModuleUrl } from '@angular/compiler';
 @Injectable()
 export class RecipeService {
     // for direct transfer of event between recipe-item component and recipe detail
-    recipeSelected = new EventEmitter<Recipe>();
+    // recipeSelected = new EventEmitter<Recipe>();
 
     // Recipe model is used here
     private recipes: Recipe[] = [
