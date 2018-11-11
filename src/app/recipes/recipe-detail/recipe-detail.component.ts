@@ -6,7 +6,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  styleUrls: ['./recipe-detail.component.css'],
+  
 })
 export class RecipeDetailComponent implements OnInit {
   // @Input() recipe: Recipe;
@@ -37,6 +38,12 @@ export class RecipeDetailComponent implements OnInit {
     // this is just an example of complex navigation which could also be used
     // here we go up one route (i.e. to recipe) then we add id and edit to the route
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+  }
+
+  // method to delete ther recipe
+  onDeleteRecipe() {
+    this._recipeService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
   }
 
 }

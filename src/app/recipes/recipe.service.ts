@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
@@ -6,6 +7,8 @@ import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable()
 export class RecipeService {
+    recipeChanged = new Subject<Recipe[]>();
+
     // for direct transfer of event between recipe-item component and recipe detail
     // recipeSelected = new EventEmitter<Recipe>();
 
@@ -35,6 +38,11 @@ export class RecipeService {
     // injecting one service into another
     constructor( private _shoppingListService: ShoppingListService) {}
 
+    setRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
     getRecipes() {
         // by using slice we send a copy of the recipes array instead of the refrence of recipes array
         // this will keep our recipes array safe ( it can't be accessed from outside)
@@ -48,5 +56,23 @@ export class RecipeService {
     // method to send the ingredients of the clicked recipe to the shopping list
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this._shoppingListService.addIngredients(ingredients);
+    }
+
+    // method to add recipe
+    addRecipe( recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    // method to update recipe
+    updateRecipe( index: number, newRecipe: Recipe) {
+        this.recipes[index] = newRecipe;
+        this.recipeChanged.next(this.recipes.slice());
+    }
+
+    // method to delete recipe
+    deleteRecipe( index: number) {
+        this.recipes.splice(index, 1);
+        this.recipeChanged.next( this.recipes.slice());
     }
 }

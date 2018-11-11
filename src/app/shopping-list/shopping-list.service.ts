@@ -1,7 +1,7 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
-
+@Injectable()
 export class ShoppingListService {
     // adding a new eventEmitter to inform the components that ingredients have changed
     // ingredientsChanged = new EventEmitter<Ingredient[]>();
