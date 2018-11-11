@@ -1,19 +1,11 @@
-import { SigninComponent } from './auth/signin/signin.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { RecipesComponent } from './recipes/recipes.component';
+import { RouterModule, Routes } from '@angular/router';
+
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { AuthGuard } from './auth/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'shopping-List', component: ShoppingListComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent }
 ];
 
 @NgModule({
